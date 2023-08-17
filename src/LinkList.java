@@ -25,6 +25,15 @@ public class LinkList {
             i.previous = last;
             last = i;
         }
+        length +=1;
+    }
+
+    public String toString(){
+        System.out.println("Node first"+": "+first.data);
+        System.out.println("Node last"+": "+last.data);
+        System.out.println("Length: "+length);
+
+        return "Node first: "+first.data+"\nNode last: "+last.data+"\nLength: "+length;
     }
 
     public static void main(String[] args) {
@@ -37,5 +46,6 @@ public class LinkList {
         M.add(b);
         M.add(c);
         M.add(d);
+        M.toString();
     }
 }
