@@ -3,7 +3,7 @@ package Week1;
 import java.util.Scanner;
 
 public class SelectionSort {
-    public static int[] SelectionSort(int[] A){
+    public static void Selection(int[] A){
         int N = A.length;
         for(int j=0;j<N;j++){
             int smallest = j;
@@ -15,9 +15,7 @@ public class SelectionSort {
             A[smallest] = A[j];
             A[j] = temp;//swap
         }
-        return A;
     }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
@@ -25,10 +23,11 @@ public class SelectionSort {
         for(int i =0;i<N;i++){
             array[i] = scanner.nextInt();
         }//get the number in
-        int[] m = SelectionSort(array);
-        for (int i=0;i<m.length;i++){
-            System.out.print(m[i]+" ");
+
+        Selection(array);
+
+        for (int j : array) {
+            System.out.print(j + " ");
         }
     }
-
 }

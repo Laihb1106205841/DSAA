@@ -2,14 +2,7 @@ package Week1;
 import java.util.Scanner;
 
 public class InsertionSort {
-    public static void main(String []args) {
-        Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();
-        int[] array = new int[N];
-        for(int i =0;i<N;i++){
-            array[i] = scanner.nextInt();
-        }//get the number in
-
+    public static void Insert(int[] array){
         for(int j=1;j<array.length; j++){
             int key = array[j];
             //insert
@@ -21,6 +14,16 @@ public class InsertionSort {
             }
             array[i+1]=key;
         }
+    }
+    public static void main(String []args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int[] array = new int[N];
+        for(int i =0;i<N;i++){
+            array[i] = scanner.nextInt();
+        }//get the number in
+
+        Insert(array);
 
         for (int i=0;i<N;i++){
             System.out.print(array[i]+" ");

@@ -5,12 +5,14 @@ import java.util.Scanner;
 public class test {
     public static void main(String []args) {
         Scanner scanner = new Scanner(System.in);
+        int n =0;
         while (scanner.hasNext()) {
             int a = scanner.nextInt();
-            int b = scanner.nextInt();
+            n+=1;
+            double m = a* Math.log10(2);
+            int ans = (int) (m/1);
             //Add your code
-            int c = a+b;
-            System.out.println(c);
+            System.out.println("Case #"+n+": "+ans);
         }
 
     }
