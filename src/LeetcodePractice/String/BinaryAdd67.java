@@ -2,6 +2,9 @@ package LeetcodePractice.String;
 
 import java.util.Arrays;
 
+/**
+ * @author admin
+ */
 public class BinaryAdd67 {
     public String addBinary(String a, String b) {
         int alen = a.length()-1;

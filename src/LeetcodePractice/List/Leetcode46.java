@@ -1,0 +1,18 @@
+package LeetcodePractice.List;
+
+import LeetcodePractice.Node.ListNode;
+
+public class Leetcode46 {
+    public boolean hasCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while (fast != null && fast.next != null){
+
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast==slow){return true;}
+        }
+        return false;
+    }
+}

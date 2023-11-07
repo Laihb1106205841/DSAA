@@ -28,8 +28,11 @@ public class QuickSortN {
 
     private static int RandPartition(int[] arr, int left, int right) {
         // ser pivot left+(int)(Math.random()*(right-left+1))
-        int pivotf = (int)(Math.random()*(right-left)) + left; //pivot
-        swap(arr, left, pivotf); //back to partition
+
+        //pivot
+        int pivotf = (int)(Math.random()*(right-left)) + left;
+        //back to partition
+        swap(arr, left, pivotf);
         int pivot = left;
         int index = pivot + 1;
         for (int i = index; i <= right; i++) {
