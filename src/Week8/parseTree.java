@@ -1,26 +1,42 @@
 package Week8;
 
 import java.util.Scanner;
-import java.util.Stack;
+
 
 public class parseTree {
-    public Stack<Integer> st;
+    public int[] st;
+    public boolean bracketsIsNull;
     public boolean brackets;
+    int pointer;
 
     public parseTree(){
-        st = new Stack<Integer>();
-        brackets = true;
+        st = new int[10];
+        pointer =0;
+        bracketsIsNull = true;
+        brackets       = true;
     }
     public void push2st(int val){
-        st.push(val);
+        st[pointer] = val;
+        if(pointer == st.length-1){
+            int[] st2 = new int[st.length+10];
+            System.arraycopy(st, 0, st2, 0, st.length);
+            st = st2;
+        }
+        pointer++;
+        bracketsIsNull = false;
     }
-    public void pop2st(int examime){
-        if(st.empty()){
+
+    public void pop2st(int exam){
+        if(bracketsIsNull){
             brackets=false;
             return;
         }
-        if(examime == st.lastElement()){
-            st.pop();
+        if(exam == st[pointer-1]){
+            st[pointer] = 0;
+            pointer--;
+            if(pointer == 0){
+                bracketsIsNull = true;
+            }
         }
         else brackets=false;
     }
@@ -32,19 +48,19 @@ public class parseTree {
             parseTree pr = new parseTree();
             String a = scanner.next();
             char[] cc = a.toCharArray();
-            for(int i=0;i<cc.length;i++){
-                if(pr.brackets){
-                    switch (cc[i]){
-                        case '(':   pr.push2st(1);break;
-                        case ')':   pr.pop2st(1);break;
-                        case '[':   pr.push2st(2);break;
-                        case ']':   pr.pop2st(2);break;
-                        case '{':   pr.push2st(3);break;
-                        case '}':   pr.pop2st(3);break;
+            for (char c : cc) {
+                if (pr.brackets) {
+                    switch (c) {
+                        case '(' -> pr.push2st(1);
+                        case ')' -> pr.pop2st(1);
+                        case '[' -> pr.push2st(2);
+                        case ']' -> pr.pop2st(2);
+                        case '{' -> pr.push2st(3);
+                        case '}' -> pr.pop2st(3);
                     }
                 }
             }
-            if(pr.brackets && pr.st.empty()){System.out.println("Yes");}
+            if(pr.brackets && pr.pointer==0){System.out.println("Yes");}
             else {System.out.println("No");}
 
         }

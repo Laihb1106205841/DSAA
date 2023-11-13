@@ -16,4 +16,7 @@ public class CanJump {
         return count == 1;
 
     }
+    public int hIndex(int[] citations) {
+        return 0;
+    }
 }
