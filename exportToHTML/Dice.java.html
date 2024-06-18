@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>Dice.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Dice.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">javax.swing.*</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.awt.*</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javax.swing.JFrame</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javax.swing.JPanel</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javax.swing.JButton</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionEvent</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionListener</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">Dice </span><span class="s0">extends </span><span class="s1">JFrame {</span>
+
+    <span class="s0">public </span><span class="s1">String nDm(</span><span class="s0">int </span><span class="s1">n</span><span class="s0">,int </span><span class="s1">m){</span>
+        <span class="s1">String ndm=</span><span class="s2">&quot;&quot;</span><span class="s0">;</span>
+        <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i=</span><span class="s3">0</span><span class="s0">;</span><span class="s1">i&lt;n</span><span class="s0">;</span><span class="s1">i++){</span>
+        <span class="s0">int </span><span class="s1">a = (</span><span class="s0">int</span><span class="s1">)(Math.random()*</span><span class="s3">100</span><span class="s1">%(m))+</span><span class="s3">1</span><span class="s0">;</span>
+        <span class="s1">System.out.println(a)</span><span class="s0">;</span>
+        <span class="s1">ndm = ndm +a+</span><span class="s2">&quot; &quot;</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">ndm</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">private </span><span class="s1">JPanel panel</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JPanel panel2</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JPanel panel3</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JPanel panel4</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JButton button</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JLabel label</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JLabel label1</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JTextField textField</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JTextField textField1</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">JLabel Answer</span><span class="s0">;</span>
+
+    <span class="s0">public </span><span class="s1">Dice() {</span>
+        <span class="s1">setTitle(</span><span class="s2">&quot;DICE&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">setSize(</span><span class="s3">500</span><span class="s0">, </span><span class="s3">400</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)</span><span class="s0">;</span>
+
+        <span class="s1">panel = </span><span class="s0">new </span><span class="s1">JPanel()</span><span class="s0">;</span>
+        <span class="s1">panel2 = </span><span class="s0">new </span><span class="s1">JPanel()</span><span class="s0">;</span>
+        <span class="s1">panel3 = </span><span class="s0">new </span><span class="s1">JPanel()</span><span class="s0">;</span>
+        <span class="s1">panel4 = </span><span class="s0">new </span><span class="s1">JPanel()</span><span class="s0">;</span>
+
+        <span class="s1">button = </span><span class="s0">new </span><span class="s1">JButton(</span><span class="s2">&quot;Click me!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">label = </span><span class="s0">new </span><span class="s1">JLabel(</span><span class="s2">&quot;请输入你想要的骰子数目&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">label1 = </span><span class="s0">new </span><span class="s1">JLabel(</span><span class="s2">&quot;请输入你想要的骰子，如D6，就输入6&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">Answer = </span><span class="s0">new </span><span class="s1">JLabel(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">textField = </span><span class="s0">new </span><span class="s1">JTextField(</span><span class="s3">10</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">textField1 = </span><span class="s0">new </span><span class="s1">JTextField(</span><span class="s3">10</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">button.addActionListener(</span><span class="s0">new </span><span class="s1">ActionListener() {</span>
+            <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+                <span class="s1">String text = textField.getText()</span><span class="s0">;</span>
+                <span class="s1">System.out.println(text)</span><span class="s0">;</span>
+                <span class="s0">int </span><span class="s1">a = Integer.parseInt(text)</span><span class="s0">;</span>
+
+                <span class="s1">String text1 = textField1.getText()</span><span class="s0">;</span>
+                <span class="s0">int </span><span class="s1">b = Integer.parseInt(text1)</span><span class="s0">;</span>
+                <span class="s1">System.out.println(text1)</span><span class="s0">;</span>
+
+                <span class="s1">String t = nDm(a</span><span class="s0">,</span><span class="s1">b)</span><span class="s0">;</span>
+                <span class="s1">Answer.setText(t)</span><span class="s0">;</span>
+
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+
+        <span class="s0">this</span><span class="s1">.setLayout(</span><span class="s0">new </span><span class="s1">GridLayout(</span><span class="s3">4</span><span class="s0">,</span><span class="s3">1</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">panel.add(button)</span><span class="s0">;</span>
+
+        <span class="s1">panel2.add(textField)</span><span class="s0">;</span>
+        <span class="s1">panel2.add(label)</span><span class="s0">;</span>
+
+        <span class="s1">panel3.add(textField1)</span><span class="s0">;</span>
+        <span class="s1">panel3.add(label1)</span><span class="s0">;</span>
+
+        <span class="s1">panel4.add(Answer)</span><span class="s0">;</span>
+
+        <span class="s1">add(panel)</span><span class="s0">;</span>
+        <span class="s1">add(panel2)</span><span class="s0">;</span>
+        <span class="s1">add(panel3)</span><span class="s0">;</span>
+        <span class="s1">add(panel4)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">Dice ui = </span><span class="s0">new </span><span class="s1">Dice()</span><span class="s0">;</span>
+        <span class="s1">ui.setVisible(</span><span class="s0">true</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
